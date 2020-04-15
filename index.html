@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <label for="new_task">New Task:</label>
+      <input id="new_task" v-model='newTask' @keyup.enter='addNewTask'>
+      <button v-on:click='addNewTask()' type="button" name="button">追加</button>
+
+      <ul>
+        <li v-for='(todo, index) in todoList'>
+          <input type='checkbox' v-model='todo.isDone'>
+          <span v-bind:class="{'done': todo.isDone}">{{todo.task}}</span>
+          <button type="button" name="button" v-on:click="deleteTask(index)">削除</button>
+        </li>
+      </ul>
+      <p>タスク残り: {{remains}}/{{todoList.length}}</p>
+    </div>
+
+
+    <script src="./index.js"></script>
+  </body>
+</html>
