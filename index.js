@@ -13,7 +13,7 @@ var app = new Vue({
         isDone: false
       });
       this.newTask = '';
-
+//
     },
     deleteTask(index){
       this.todoList.splice(index,1);
